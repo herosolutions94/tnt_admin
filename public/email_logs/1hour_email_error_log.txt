@@ -1,0 +1,2 @@
+[2024-11-21 07:40:55] Duration: 1hour, General Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'herosol_veerra.tbl_send_lead_emailss' doesn't exist (SQL: select * from `tbl_send_lead_emailss` where `email_time` <= 2024-11-21 07:40:55 and `duration` = 1hour)
+[2024-11-21 07:41:36] Email : naeem@herosolutions.com.pk, Lead ID: 111, Email Time: 2024-11-10 05:33:33, Error: Attempt to read property "code" on null

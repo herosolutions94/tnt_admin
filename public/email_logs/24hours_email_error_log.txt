@@ -1,0 +1,1 @@
+[2024-11-21 07:43:08] Duration: 1hour, General Error: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'herosol_veerra.tbl_send_lead_emailss' doesn't exist (SQL: select * from `tbl_send_lead_emailss` where `email_time` <= 2024-11-21 07:43:08 and `duration` = 24hours)
