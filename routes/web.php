@@ -37,6 +37,9 @@ use App\Http\Controllers\admin\Team;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\FrontendPages;
 use App\Http\Controllers\admin\Request_Quote;
+use App\Http\Controllers\admin\Interns;
+use App\Http\Controllers\admin\Coaches;
+use App\Http\Controllers\admin\Work_videos;
 
 /*
 |--------------------------------------------------------------------------
@@ -294,4 +297,22 @@ Route::middleware(['is_admin'])->group(function () {
     Route::match(['GET', 'POST'], '/admin/hardscapes/edit/{id}', [Hardscapes::class, 'edit']);
     Route::match(['GET', 'POST'], '/admin/hardscapes/add', [Hardscapes::class, 'add']);
     Route::match(['GET', 'POST'], '/admin/hardscapes/delete/{id}', [Hardscapes::class, 'delete']);
+
+    /*==============================Our Interns =====================================*/
+    Route::get('/admin/interns', [Interns::class, 'index']);
+    Route::match(['GET', 'POST'], '/admin/interns/add', [Interns::class, 'add']);
+    Route::match(['GET', 'POST'], '/admin/interns/edit/{id}', [Interns::class, 'edit']);
+    Route::match(['GET', 'POST'], '/admin/interns/delete/{id}', [Interns::class, 'delete']);
+
+    /*==============================Page Content Coaches =====================================*/
+    Route::get('/admin/coaches', [Coaches::class, 'index']);
+    Route::match(['GET', 'POST'], '/admin/coaches/add', [Coaches::class, 'add']);
+    Route::match(['GET', 'POST'], '/admin/coaches/edit/{id}', [Coaches::class, 'edit']);
+    Route::match(['GET', 'POST'], '/admin/coaches/delete/{id}', [Coaches::class, 'delete']);
+
+    /*==============================Work Videos =====================================*/
+    Route::get('/admin/work_videos', [Work_videos::class, 'index']);
+    Route::match(['GET', 'POST'], '/admin/work_videos/add', [Work_videos::class, 'add']);
+    Route::match(['GET', 'POST'], '/admin/work_videos/edit/{id}', [Work_videos::class, 'edit']);
+    Route::match(['GET', 'POST'], '/admin/work_videos/delete/{id}', [Work_videos::class, 'delete']);
 });
