@@ -15,13 +15,13 @@ class Request_Quote_model extends Model
         'lname',
         'email',
         'phone',
-        'address',
+        'tiktok',
         'status',
-        'pool_type',
-        'stage',
-        'timeline',
-        'budget',
-        'anything_else'
+        'instagram',
+        'followers',
+        'experience',
+        'why',
+        'availability'
 
     ];
 }

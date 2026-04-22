@@ -69,26 +69,19 @@
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <label class="form-label" for="image1">Banner Image</label>
-                            <div class="card w-100 border position-relative overflow-hidden">
-                                <div class="card-body p-4">
-                                    <div class="text-center">
-                                        <div class="file_choose_icon">
-                                            <img src="{{ get_site_image_src('images', !empty($sitecontent['image1']) ? $sitecontent['image1'] : ' ') }}"
-                                                alt="matdash-img" class="img-fluid ">
-                                        </div>
-                                        <p class="mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
-                                        <input class="form-control uploadFile" name="image1" type="file"
-                                            data-bs-original-title="" title="">
-                                    </div>
-                                </div>
+
+                 <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label class="form-label" for="banner_top_heading">Top Heading</label>
+                                <input class="form-control" id="banner_top_heading" type="text" name="banner_top_heading"
+                                    placeholder="" value="{{ $sitecontent['banner_top_heading'] ?? '' }}">
                             </div>
                         </div>
                     </div>
 
-                    <!-- <div class="row">
+
+                    <div class="row">
                         <div class="col">
                             <div class="mb-3">
                                 <label class="form-label" for="banner_heading">Banner Heading</label>
@@ -96,57 +89,52 @@
                                     placeholder="" value="{{ $sitecontent['banner_heading'] ?? '' }}">
                             </div>
                         </div>
-                    </div> -->
+                    </div>
 
                     <div class="row">
                         <div class="col">
                             <div class="mb-3">
                                 <label class="form-label" for="banner_text">Text</label>
                                 <textarea id="banner_text" name="banner_text" rows="4"
-                                    class="editor">{{ $sitecontent['banner_text'] ?? '' }}</textarea>
+                                    class="form-control">{{ $sitecontent['banner_text'] ?? '' }}</textarea>
                             </div>
                         </div>
                     </div>
 
 
-
-
-                </div>
-
-            </div>
-        </div>
-
-
-    </div>
-
-    <div class="card">
-
-        <div class="card-header">
-            <h5>Section 1</h5>
-        </div>
-
-        <div class="card-body">
-
-            <div class="row">
-
-                <div class="col-md-12">
-
-                    <div class="row">
+                     <div class="row">
                         <div class="col">
                             <div class="mb-3">
-                                <label class="form-label" for="section1_text">Text</label>
-                                <textarea id="section1_text" name="section1_text" rows="4"
-                                    class=" form-control">{{ !empty($sitecontent['section1_text']) ? $sitecontent['section1_text'] : '' }}</textarea>
+                                <label class="form-label" for="btn_text">Button Text</label>
+                                <input class="form-control" id="btn_text" type="text" name="btn_text"
+                                    placeholder="" value="{{ $sitecontent['btn_text'] ?? '' }}">
+                            </div>
+                        </div>
+                    </div>
+
+
+                     <div class="row">
+                        <div class="col">
+                            <div class="mb-3">
+                                <label class="form-label" for="banner_bottom_text">Bottom Text</label>
+                                <textarea id="banner_bottom_text" name="banner_bottom_text" rows="4"
+                                    class="form-control">{{ $sitecontent['banner_bottom_text'] ?? '' }}</textarea>
                             </div>
                         </div>
                     </div>
 
 
 
+
+                </div>
+
+                <div class="col-12">
+                    <div class="d-flex align-items-center justify-content-end mt-4 gap-6">
+                        <button class="btn btn-primary" type="submit">Update Page</button>
+                    </div>
                 </div>
 
             </div>
-
         </div>
 
 
@@ -157,21 +145,19 @@
 
 
 
+
+
     </div>
-
-    </div>
-
-
-
 
     </div>
 
 
 
 
-    <div class="col-12">
-        <div class="d-flex align-items-center justify-content-end mt-4 gap-6">
-            <button class="btn btn-primary" type="submit">Update Page</button>
-        </div>
     </div>
+
+
+
+
+
     @endsection

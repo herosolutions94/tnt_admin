@@ -36,9 +36,9 @@ class Testimonials extends Controller
                 $data['status'] = 0;
             }
             $data['name'] = $input['name'];
-            $data['title'] = $input['title'];
+            // $data['title'] = $input['title'];
 
-            $data['designation'] = $input['designation'];
+            // $data['designation'] = $input['designation'];
             // $data['ratings']=!empty($input['ratings']) ? floatval($input['ratings']) : 0;
             $data['message'] = $input['message'];
             // pr($data);
@@ -72,9 +72,9 @@ class Testimonials extends Controller
                 $testimonial->status = 0;
             }
             $testimonial->name = $input['name'];
-            $testimonial->title = $input['title'];
+            // $testimonial->title = $input['title'];
 
-            $testimonial->designation = $input['designation'];
+            // $testimonial->designation = $input['designation'];
             // $testimonial->ratings=!empty($input['ratings']) ? floatval($input['ratings']) : 0;
             $testimonial->message = $input['message'];
             // pr($data);

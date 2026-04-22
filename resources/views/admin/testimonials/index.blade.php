@@ -40,7 +40,7 @@
                                             <input type="text" class="form-control" name="name"
                                                 value="{{ !empty($row->name) ? $row->name : '' }}" required>
                                         </div>
-                                        <div class="col-md-6 mb-3">
+                                        <!-- <div class="col-md-6 mb-3">
                                             <label for="designation" class="form-label">Designation</label>
                                             <input type="text" class="form-control" name="designation"
                                                 value="{{ !empty($row->designation) ? $row->designation : '' }}" required>
@@ -49,7 +49,7 @@
                                             <label for="title" class="form-label">Title</label>
                                             <input type="text" class="form-control" name="title"
                                                 value="{{ !empty($row->title) ? $row->title : '' }}" required>
-                                        </div>
+                                        </div> -->
                                     </div>
                                     {{-- <div class="mb-3">
                                         <label for="name" class="form-label">Ratings</label>
@@ -78,7 +78,7 @@
 
                                     <div class="mb-3">
                                         <label for="message" class="form-label">Text</label>
-                                        <textarea class="editor" name="message">{{ !empty($row) ? $row->message : '' }}</textarea>
+                                        <textarea class="form-control" name="message">{{ !empty($row) ? $row->message : '' }}</textarea>
                                     </div>
 
                                     <div class="col-12">
@@ -105,7 +105,6 @@
                                 <tr>
                                     <th>Sr#</th>
                                     <th>Name</th>
-                                    <th>Designation</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -128,10 +127,7 @@
                                                 </div>
 
                                             </td>
-                                            <td>
-                                                {!! $row->designation !!}
-                                                {{-- <div class="rateYo-show" data-rateyo-rating="{{ $row->ratings }}"></div> --}}
-                                            </td>
+                                          
                                             <td>{!! getStatus($row->status) !!}</td>
                                             <td>
                                                 <div class="dropdown dropstart">

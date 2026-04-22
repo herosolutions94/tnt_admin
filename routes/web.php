@@ -20,9 +20,6 @@ use App\Http\Controllers\admin\Directors;
 use App\Http\Controllers\admin\Emails;
 use App\Http\Controllers\admin\Emails_content;
 use App\Http\Controllers\admin\Executive;
-use App\Http\Controllers\admin\Job_opportunities;
-use App\Http\Controllers\admin\Job_type;
-use App\Http\Controllers\admin\Jobs;
 use App\Http\Controllers\admin\Locations;
 use App\Http\Controllers\admin\Sub_admin;
 use App\Http\Controllers\admin\Permissions;
@@ -113,11 +110,7 @@ Route::middleware(['is_admin'])->group(function () {
     Route::match(['GET', 'POST'], '/admin/sub-admin/edit/{id}', [Sub_admin::class, 'edit']);
     Route::match(['GET', 'POST'], '/admin/sub-admin/permissions/{id}', [Sub_admin::class, 'permissions']);
     Route::match(['GET', 'POST'], '/admin/sub-admin/delete/{id}', [Sub_admin::class, 'delete']);
-    /*==============================Permissions Module =====================================*/
-    Route::get('/admin/permissions', [Permissions::class, 'index']);
-    Route::match(['GET', 'POST'], '/admin/permissions/add', [Permissions::class, 'add']);
-    Route::match(['GET', 'POST'], '/admin/permissions/edit/{id}', [Permissions::class, 'edit']);
-    Route::match(['GET', 'POST'], '/admin/permissions/delete/{id}', [Permissions::class, 'delete']);
+
 
     /*==============================Testimonials Module =====================================*/
     Route::get('/admin/testimonials', [Testimonials::class, 'index']);
@@ -153,23 +146,7 @@ Route::middleware(['is_admin'])->group(function () {
     Route::match(['GET', 'POST'], '/admin/locations/delete/{id}', [Locations::class, 'delete']);
     Route::get('/get-country-states', [Locations::class, 'get_states'])->name('get.states');
 
-    /*==============================Specialization =====================================*/
-    Route::get('/admin/specialization', [Specialization::class, 'index']);
-    Route::match(['GET', 'POST'], '/admin/specialization/add', [Specialization::class, 'add']);
-    Route::match(['GET', 'POST'], '/admin/specialization/edit/{id}', [Specialization::class, 'edit']);
-    Route::match(['GET', 'POST'], '/admin/specialization/delete/{id}', [Specialization::class, 'delete']);
 
-    /*==============================Job Type =====================================*/
-    Route::get('/admin/job_type', [Job_type::class, 'index']);
-    Route::match(['GET', 'POST'], '/admin/job_type/add', [Job_type::class, 'add']);
-    Route::match(['GET', 'POST'], '/admin/job_type/edit/{id}', [Job_type::class, 'edit']);
-    Route::match(['GET', 'POST'], '/admin/job_type/delete/{id}', [Job_type::class, 'delete']);
-    /*==============================Jobs =====================================*/
-    Route::get('/admin/jobs', [Jobs::class, 'index']);
-    Route::match(['GET', 'POST'], '/admin/jobs/add', [Jobs::class, 'add']);
-    Route::match(['GET', 'POST'], '/admin/jobs/edit/{id}', [Jobs::class, 'edit']);
-    Route::match(['GET', 'POST'], '/admin/jobs/delete/{id}', [Jobs::class, 'delete']);
-    // Route::get('/get-country-states', [Jobs::class, 'get_states'])->name('get.states');
 
 
     /*==============================BLOG Categories Module =====================================*/
@@ -202,11 +179,7 @@ Route::middleware(['is_admin'])->group(function () {
     Route::match(['GET', 'POST'], '/admin/team/edit/{id}', [Team::class, 'edit']);
     Route::match(['GET', 'POST'], '/admin/team/delete/{id}', [Team::class, 'delete']);
 
-    /*==============================Job Opportunities =====================================*/
-    Route::get('/admin/job_opportunities', [Job_opportunities::class, 'index']);
-    Route::match(['GET', 'POST'], '/admin/job_opportunities/add', [Job_opportunities::class, 'add']);
-    Route::match(['GET', 'POST'], '/admin/job_opportunities/edit/{id}', [Job_opportunities::class, 'edit']);
-    Route::match(['GET', 'POST'], '/admin/job_opportunities/delete/{id}', [Job_opportunities::class, 'delete']);
+
 
     /*==============================Services =====================================*/
     Route::get('/admin/services', [Services::class, 'index']);
@@ -232,6 +205,7 @@ Route::middleware(['is_admin'])->group(function () {
     Route::match(['GET', 'POST'], '/admin/pages/pool_details', [Pages::class, 'pool_details']);
     Route::match(['GET', 'POST'], '/admin/pages/patio_details', [Pages::class, 'patio_details']);
     Route::match(['GET', 'POST'], '/admin/pages/hardscapes_details', [Pages::class, 'hardscapes_details']);
+    Route::match(['GET', 'POST'], '/admin/pages/become_creator', [Pages::class, 'become_creator']);
 
 
 
@@ -263,20 +237,7 @@ Route::middleware(['is_admin'])->group(function () {
     Route::match(['GET', 'POST'], '/admin/subscribers/delete/{id}', [Subscribers::class, 'delete']);
     Route::match(['GET', 'POST'], '/admin/subscribers/csv_export', [Subscribers::class, 'csv_export']);
 
-    /*==============================Aviva =====================================*/
-    Route::get('/admin/aviva', [Aviva::class, 'index']);
-    Route::match(['GET', 'POST'], '/admin/aviva/edit/{id}', [Aviva::class, 'edit']);
-    Route::match(['GET', 'POST'], '/admin/aviva/add', [Aviva::class, 'add']);
-    Route::match(['GET', 'POST'], '/admin/aviva/delete/{id}', [Aviva::class, 'delete']);
-    Route::get('/admin/aviva/specifications/manage/{productId}', [Aviva::class, 'manageSpecifications'])
-    ->name('aviva.specifications.manage');
 
-
-    /*==============================Aviva =====================================*/
-    Route::get('/admin/renaissance', [Renaissance::class, 'index']);
-    Route::match(['GET', 'POST'], '/admin/renaissance/edit/{id}', [Renaissance::class, 'edit']);
-    Route::match(['GET', 'POST'], '/admin/renaissance/add', [Renaissance::class, 'add']);
-    Route::match(['GET', 'POST'], '/admin/renaissance/delete/{id}', [Renaissance::class, 'delete']);
 
     /*==============================stick-built =====================================*/
     Route::get('/admin/stick-built', [Built::class, 'index']);
@@ -284,19 +245,9 @@ Route::middleware(['is_admin'])->group(function () {
     Route::match(['GET', 'POST'], '/admin/stick-built/add', [Built::class, 'add']);
     Route::match(['GET', 'POST'], '/admin/stick-built/delete/{id}', [Built::class, 'delete']);
 
-    /*==============================Aviva =====================================*/
-    Route::get('/admin/colors', [Color::class, 'index']);
-    Route::match(['GET', 'POST'], '/admin/colors/edit/{id}', [Color::class, 'edit']);
-    Route::match(['GET', 'POST'], '/admin/colors/add', [Color::class, 'add']);
-    Route::match(['GET', 'POST'], '/admin/colors/delete/{id}', [Color::class, 'delete']);
 
 
 
-    /*==============================Hardscapes =====================================*/
-    Route::get('/admin/hardscapes', [Hardscapes::class, 'index']);
-    Route::match(['GET', 'POST'], '/admin/hardscapes/edit/{id}', [Hardscapes::class, 'edit']);
-    Route::match(['GET', 'POST'], '/admin/hardscapes/add', [Hardscapes::class, 'add']);
-    Route::match(['GET', 'POST'], '/admin/hardscapes/delete/{id}', [Hardscapes::class, 'delete']);
 
     /*==============================Our Interns =====================================*/
     Route::get('/admin/interns', [Interns::class, 'index']);

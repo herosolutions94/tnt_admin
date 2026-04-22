@@ -184,7 +184,7 @@ class Ajax extends Controller
                 'email' => 'required|email|unique:newsletter,email',
             ];
             $validator = Validator::make($input, $request_data);
-          
+
             if ($validator->fails()) {
                 $res['status'] = 0;
                 // $res['msg'] = 'Error >>' . $validator->errors()->first();
@@ -213,14 +213,14 @@ class Ajax extends Controller
                 'email' => 'required|email',
                 'fname' => 'required',
                 'lname' => 'required',
-                'phone' => 'required',               
+                'phone' => 'required',
                 'message' => 'required',
                 'hear_about_us' => 'required',
                 // 'feedback_type' => 'required',
 
             ];
             $validator = Validator::make($input, $request_data);
-          
+
             if ($validator->fails()) {
                 $res['status'] = 0;
                 // $res['msg'] = 'Error >>' . $validator->errors();
@@ -231,8 +231,8 @@ class Ajax extends Controller
                     'lname' => $input['lname'],
                     'email' => $input['email'],
                     'phone' => $input['phone'],
-                     'message' => $input['message'],
-                    'hear_about_us' => $input['hear_about_us'],                   
+                    'message' => $input['message'],
+                    'hear_about_us' => $input['hear_about_us'],
                     'status' => 0
                 );
                 // pr($data);
@@ -259,71 +259,125 @@ class Ajax extends Controller
         exit(json_encode($res));
     }
 
+    // public function request_quote(Request $request)
+    // {
+
+    //     $res = array();
+    //     $res['status'] = 0;
+    //     $input = $request->all();
+    //     // pr($input);
+    //     if ($input) {
+    //         $request_data = [
+    //             'name'         => 'required|string|max:255',
+    //             'email'        => 'required|email|max:255',
+    //             'phone'        => 'nullable|string|max:50',
+    //             'tiktok'       => 'nullable|string|max:255',
+    //             'instagram'    => 'nullable|string|max:255',
+    //             'followers'    => 'nullable|string|max:50',
+    //             'experience'   => 'nullable|string',
+    //             'why'          => 'required|string',
+    //             'availability' => 'required|string|max:50',
+
+
+    //         ];
+    //         $validator = Validator::make($input, $request_data);
+
+    //         if ($validator->fails()) {
+    //             $res['status'] = 0;
+    //             // $res['msg'] = 'Error >>' . $validator->errors();
+    //             $res['msg'] = convertArrayMessageToString($validator->errors()->all());
+    //         } else {
+    //             $data = array(
+    //                 'name'         => $input['name'],
+    //                 'email'        => $input['email'],
+    //                 'phone'        => $input['phone']        ?? null,
+    //                 'tiktok'       => $input['tiktok']       ?? null,
+    //                 'instagram'    => $input['instagram']    ?? null,
+    //                 'followers'    => $input['followers']    ?? null,
+    //                 'experience'   => $input['experience']   ?? null,
+    //                 'why'          => $input['why'],
+    //                 'availability' => $input['availability'],
+    //                 'status'       => 0,
+    //             );
+    //             pr($data);
+    //             dd("ok");
+    //             Request_Quote_model::create($data);
+
+    //             // $email_data = array(
+    //             //     'email_to' => $this->data['site_settings']->site_email,
+    //             //     'email_to_name' => 'Admin',
+    //             //     'email_from' => $this->data['site_settings']->site_noreply_email,
+    //             //     'email_from_name' => $this->data['site_settings']->site_name,
+    //             //     'sender_name' => $input['name'],
+    //             //     'subject' => 'New Contact Query',
+    //             //     'mem_data' => $data,
+    //             //     // 'link' => $verify_link,
+
+    //             // );
+    //             // pr($email_data);
+    //             // send_email($email_data, 'contact-email');
+
+    //             $res['status'] = 1;
+    //             $res['msg'] = 'Application submitted successfully!';
+    //         }
+    //     }
+    //     exit(json_encode($res));
+    // }
+
+
     public function request_quote(Request $request)
-    {
+{
+    $res = ['status' => 0];
 
-        $res = array();
-        $res['status'] = 0;
-        $input = $request->all();
-        // pr($input);
-        if ($input) {
-            $request_data = [
-                'email' => 'required|email',
-                'fname' => 'required',
-                'lname' => 'required',
-                'phone' => 'required',
-                'anything_else' => 'required',
-                'budget' => 'required',
-                'timeline' => 'required',
-                'stage' => 'required',
-                'address' => 'required',
-                'pool_type' => 'required',
-                
+    $input = $request->all();
 
-            ];
-            $validator = Validator::make($input, $request_data);
-          
-            if ($validator->fails()) {
-                $res['status'] = 0;
-                // $res['msg'] = 'Error >>' . $validator->errors();
-                $res['msg'] = convertArrayMessageToString($validator->errors()->all());
-            } else {
-                $data = array(
-                     'fname' => $input['fname'],
-                    'lname' => $input['lname'],
-                    'email' => $input['email'],
-                    'phone' => $input['phone'],
-                     'anything_else' => $input['anything_else'],
-                    'budget' => $input['budget'],
-                    'timeline' => $input['timeline'],
-                    'stage' => $input['stage'],
-                    'address' => $input['address'],
-                    'pool_type' => $input['pool_type'],
-                    'status' => 0
-                );
-                // pr($data);
-                Request_Quote_model::create($data);
+    if ($input) {
 
-                // $email_data = array(
-                //     'email_to' => $this->data['site_settings']->site_email,
-                //     'email_to_name' => 'Admin',
-                //     'email_from' => $this->data['site_settings']->site_noreply_email,
-                //     'email_from_name' => $this->data['site_settings']->site_name,
-                //     'sender_name' => $input['name'],
-                //     'subject' => 'New Contact Query',
-                //     'mem_data' => $data,
-                //     // 'link' => $verify_link,
+        $rules = [
+            'name'         => 'required|string|max:255',
+            'email'        => 'required|email|max:255',
+            'phone'        => 'nullable|string|max:50',
+            'tiktok'       => 'nullable|string|max:255',
+            'instagram'    => 'nullable|string|max:255',
+            'followers'    => 'nullable|string|max:50',
+            'experience'   => 'nullable|string',
+            'why'          => 'required|string',
+            'availability' => 'required|string|max:50',
+        ];
 
-                // );
-                // pr($email_data);
-                // send_email($email_data, 'contact-email');
+        $validator = Validator::make($input, $rules);
 
-                $res['status'] = 1;
-                $res['msg'] = 'Request Quote submitted successfully!';
-            }
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 0,
+                'msg' => convertArrayMessageToString($validator->errors()->all())
+            ]);
         }
-        exit(json_encode($res));
+
+        $data = [
+            'name'         => $input['name'] ?? null,
+            'email'        => $input['email'] ?? null,
+            'phone'        => $input['phone'] ?? null,
+            'tiktok'       => $input['tiktok'] ?? null,
+            'instagram'    => $input['instagram'] ?? null,
+            'followers'    => $input['followers'] ?? null,
+            'experience'   => $input['experience'] ?? null,
+            'why'          => $input['why'] ?? null,
+            'availability' => $input['availability'] ?? null,
+            'status'       => 0,
+        ];
+
+        Request_Quote_model::create($data);
+
+        return response()->json([
+            'status' => 1,
+            'msg' => 'Application submitted successfully!'
+        ]);
     }
 
-    
+    return response()->json([
+        'status' => 0,
+        'msg' => 'Invalid request'
+    ]);
+}
 }
